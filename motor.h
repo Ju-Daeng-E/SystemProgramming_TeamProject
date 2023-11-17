@@ -11,7 +11,7 @@
 #define IN3 22  // IN3 핀
 #define IN4 27  // IN4 핀
 
-#define PWM_RANGE 1023  // PWM 범위
+#define PWM_RANGE 1024  // PWM 범위
 
 void initMotor() {
     wiringPiSetupGpio();  // GPIO 핀 번호 사용

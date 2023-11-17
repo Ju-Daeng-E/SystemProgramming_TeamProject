@@ -1,11 +1,7 @@
-#include <fcntl.h>
-#include <linux/spi/spidev.h>
-#include <linux/types.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/ioctl.h>
-#include <unistd.h>
+#ifndef __SPI_NOWIRE__
+#define __SPI_NOWIRE__
+
+#include "header.h"
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
@@ -68,8 +64,9 @@ int readadc(int fd, uint8_t channel) {
   return ((rx[1] << 8) & 0x300) | (rx[2] & 0xFF);
 }
 
-int main(int argc, char **argv) {
-  int fd = open(DEVICE, O_RDWR);
+void SPI_NO_init()
+{
+   int fd = open(DEVICE, O_RDWR);
   if (fd <= 0) {
     perror("Device open error");
     return -1;
@@ -79,11 +76,10 @@ int main(int argc, char **argv) {
     perror("Device prepare error");
     return -1;
   }
-
-  while (1) {
-    printf("value: %d\n", readadc(fd, 0));         //0번 채널의 값을 불러들임 (B의 값)
-    printf("value: %d\n", readadc(fd, 1));         //1번 채널의 값을 불러들임 (X의 값)
-    printf("value: %d\n", readadc(fd, 2));         //2번 채널의 값을 불러들임 (Y의 값)
-    usleep(10000);
-  }
 }
+
+    //printf("value: %d\n", readadc(fd, 0));         //0번 채널의 값을 불러들임 (B의 값)
+    //printf("value: %d\n", readadc(fd, 1));         //1번 채널의 값을 불러들임 (X의 값)
+    //printf("value: %d\n", readadc(fd, 2));         //2번 채널의 값을 불러들임 (Y의 값)
+
+#endif
