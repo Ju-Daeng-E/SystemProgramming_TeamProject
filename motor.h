@@ -1,7 +1,7 @@
 #ifndef __MOTOR_H__
 #define __MOTOR_H__
 
-#include <wiringPi.h>
+#include "header.h"
 
 #define ENA 18  // ENA 핀
 #define IN1 23  // IN1 핀

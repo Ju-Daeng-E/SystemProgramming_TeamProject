@@ -1,10 +1,7 @@
 #ifndef __PWM__
 #define __PWM__
 
-#include <fcntl.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
+#include "header.h"
 
 #define IN 0
 #define OUT 1
