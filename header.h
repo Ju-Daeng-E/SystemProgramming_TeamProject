@@ -11,5 +11,6 @@
 #include <linux/types.h>
 #include <stdint.h>
 #include <sys/ioctl.h>
+#include <stdlib.h>
 
 #endif

@@ -101,11 +101,12 @@ static int PWMWriteDutyCycle(int pwmnum, int value) {
   return (0);
 }
 
-void PWMinit() {
-    PWMExport(PWM);
-    PWMWritePeriod(PWM, 10000000);  // PWM 주기 설정
-    PWMWriteDutyCycle(PWM, 0);      // 초기 듀티 사이클을 0으로 설정
-    PWMEnable(PWM);
+
+void PWMinit(int pwm) {
+    PWMExport(pwm);
+    PWMWritePeriod(pwm, 10000000);  // PWM 주기 설정
+    PWMWriteDutyCycle(pwm, 0);      // 초기 듀티 사이클을 0으로 설정
+    PWMEnable(pwm);
 }
 
 #endif
